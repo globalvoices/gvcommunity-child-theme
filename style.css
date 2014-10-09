@@ -1,0 +1,12 @@
+/*
+Theme Name: GV Community Child Theme
+Theme URI: http://community.globalvoicesonline.org/
+Description: Child theme for the generic gv-project-theme for GV Community Blog
+Version: 0.1
+Author: Jeremy Clarke
+Author URI: http://globalvoicesonline.org/
+Template: gv-project-theme
+
+*/
+
+@import url("../gv-project-theme/style.css");
