@@ -6,6 +6,54 @@
  * This code will run before the functions.php in that theme.
  */
 
+/**
+ * Filter post class to add .rtl-direction if the 'gv-rtl' postmeta is true
+ * 
+ * Expects a metabox in the post editor to check for "RTL". 
+ * 
+ * @param string $classes Other classes that will be shown
+ * @param string $class Classes specified in the post_class() call (NOT IMPORTANT)
+ * @param integer $post_id 
+ * @return string List of classes with ours added if necessary
+ */
+function gv_filter_post_classes_rtl ($classes, $class, $post_id) {
+
+	$is_rtl = get_post_meta($post_id, 'gv-rtl', true);
+	if ($is_rtl)
+		$classes[] = 'rtl-direction';
+	return $classes;
+}
+add_filter('post_class', 'gv_filter_post_classes_rtl', 10, 3);
+
+/**
+ * Register custom postmeta fields with the Custom Medatata Manager plugin
+ *
+ * Convert to some other format if this ever stops working
+ */
+function gv_community_custom_metadata_manager_admin_init() {
+	/**
+	 * Exit if the plugin isn't present
+	 */
+	if(!function_exists( 'x_add_metadata_field' ) OR !function_exists( 'x_add_metadata_group' ) )
+		return;
+	/**
+	 * Register a group for pages and posts
+	 */
+	x_add_metadata_group('gv_custom_metadata_posts', array('post', 'page'), array(
+		'label' => 'Post Settings (Global Voices)',
+		'priority' => 'high',
+	));
+	/**
+	 * Extra-wide switch, pages only
+	 */
+	x_add_metadata_field( 'gv-rtl', array('post', 'page'), array(
+		'group' => 'gv_custom_metadata_posts',
+		'label' => 'RTL: Check this box to display this post as Right-To-Left (for Arabic, Hebrew, Urdu etc.)',
+		'field_type' => 'checkbox',
+	));
+}
+add_action( 'admin_init', 'gv_community_custom_metadata_manager_admin_init' );
+
 if (is_object($gv)) :
 
 	/**
