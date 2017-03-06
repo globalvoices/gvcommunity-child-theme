@@ -7,6 +7,51 @@
  */
 
 /**
+ * Filter pre-sidebar section of sidebar.php to insert things specific to Community Theme
+ * 
+ * @uses apply_filters('gv_pre_sidebar', $pre_sidebar) from sidebar.php
+ * @param string $output
+ * @return string filtered $output
+ */
+function gv_community_filter_pre_sidebar($output) {
+	/**
+	 * Only continue if our menu is set
+	 */
+	if (!has_nav_menu('guide_sidebar_menu')) 
+		return $output;
+	
+	/**
+	 * Assemble the HTML wrapping to match the rest of sidebar.php
+	 */
+	$pre_sidebar = "";
+	$pre_sidebar .= "<div class='pre-sidebar-container widget-container'><div class='pre-sidebar widget textwidget'>";
+	$pre_sidebar .= wp_nav_menu(array(
+			'theme_location' => 'guide_sidebar_menu',
+			'echo' => false,
+			)
+		);	
+	$pre_sidebar .= "</div></div>";
+
+	$output = $pre_sidebar . $output;
+	return $output;
+}
+add_filter('gv_pre_sidebar', 'gv_community_filter_pre_sidebar');
+
+/**
+ * Register menus for GV News Theme.
+ * 
+ * Adds custom guide sidebar menu menu to contain a mini-menu of top pages
+ * 
+ * Runs during 'init' action
+ */
+function gv_community_register_menus() {
+	register_nav_menus(array(
+		'guide_sidebar_menu' => 'Guide menu to show in sidebar of all guides.',
+	));
+}
+add_action('init', 'gv_community_register_menus');
+
+/**
  * Filter post class to add .rtl-direction if the 'gv-rtl' postmeta is true
  * 
  * Expects a metabox in the post editor to check for "RTL". 
