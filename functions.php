@@ -7,7 +7,7 @@
  */
 
 /**
- * Filter pre-sidebar section of sidebar.php to insert things specific to Community Theme
+ * Filter/action pre-sidebar section of sidebar.php to insert things specific to Community Theme
  * 
  * @uses apply_filters('gv_pre_sidebar', $pre_sidebar) from sidebar.php
  * @param string $output
@@ -15,24 +15,12 @@
  */
 function gv_community_filter_pre_sidebar($output) {
 	/**
-	 * Only continue if our menu is set
+	 * Echo out guide_sidebar_top if it exists
+	 * NOTE: No echo=false in gv_display_sidebar because of dynamic_sidebar not supporting it
+	 * So effectively we're using gv_pre_sidebar as an action rather than filter. 
 	 */
-	if (!has_nav_menu('guide_sidebar_menu')) 
-		return $output;
+	gv_display_sidebar('guide_sidebar_top', array());
 	
-	/**
-	 * Assemble the HTML wrapping to match the rest of sidebar.php
-	 */
-	$pre_sidebar = "";
-	$pre_sidebar .= "<div class='pre-sidebar-container widget-container'><div class='pre-sidebar widget textwidget'>";
-	$pre_sidebar .= wp_nav_menu(array(
-			'theme_location' => 'guide_sidebar_menu',
-			'echo' => false,
-			)
-		);	
-	$pre_sidebar .= "</div></div>";
-
-	$output = $pre_sidebar . $output;
 	return $output;
 }
 add_filter('gv_pre_sidebar', 'gv_community_filter_pre_sidebar');
@@ -40,16 +28,28 @@ add_filter('gv_pre_sidebar', 'gv_community_filter_pre_sidebar');
 /**
  * Register menus for GV News Theme.
  * 
- * Adds custom guide sidebar menu menu to contain a mini-menu of top pages
+ * Adds guide_sidebar_top sidebar to contain a mini-menu of top guide pages
  * 
  * Runs during 'init' action
  */
-function gv_community_register_menus() {
-	register_nav_menus(array(
-		'guide_sidebar_menu' => 'Guide menu to show in sidebar of all guides.',
+function gv_community_register_sidebars() {
+	/**
+	 * Register 
+	 * Only thing higher is the full page menu on page.php
+	 * 
+	 * Uses standard sidebar before/after stuff from elsewhere in theme to match
+	 */
+	register_sidebar(array(
+		'name'=>'Guide sidebar top',
+		'id' => 'guide_sidebar_top',
+		'description' => 'This sidebar will show at the top of the sidebar for GUIDE pages, above everything else.',
+		'before_widget' => '<div class="widget-container"><div id="%1$s" class="widget %2$s">',
+		'after_widget' => "</div><!--.widget--></div><!--.widget-container-->",
+		'before_title' => "<h2 class='widgettitle'>",
+		'after_title' => "</h2>\n"
 	));
 }
-add_action('init', 'gv_community_register_menus');
+add_action('init', 'gv_community_register_sidebars');
 
 /**
  * Filter post class to add .rtl-direction if the 'gv-rtl' postmeta is true
