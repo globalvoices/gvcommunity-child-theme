@@ -292,6 +292,62 @@ if (is_object($gv)) :
 //		),
 //	);
 	
+
+
+/**
+ * Register "User Categories" as a user taxonomy
+ *
+ * Simple, hand-created list of user-categories specifically so that we can have
+ * a `council-2018` user category and display the list of users. 
+ * 
+ * English only for now. If we use something similar on Lingua it will need to be
+ * re-evaluated. 
+ *
+ */
+function gvcommunity_register_user_groups_taxonomy() {
+		/**
+		 * Set up the register_taxonomy args 
+		 * (based on gv_achievements->register_taxonomy()
+		 */
+		$args = array(
+//			'single_term_taxonomy' => true, // Users can have multiple terms
+//			'checked_ontop' => true, // Passed to wp_category_checklist() Whether to filter selected terms to the top of list (breaks hierarchy)
+			'public' => true,
+			'hierarchical' => true,
+			'labels' => array(
+				'name' => __( 'User Categories'),
+				'singular_name' => __( 'User Categories' ),
+				'menu_name' => __( 'User Categories' ),
+				'search_items' => __( 'Search User Categories' ),
+				'popular_items' => __( 'Popular User Categories' ),
+				'all_items' => __( 'All User Categories' ),
+				'edit_item' => __( 'Edit User Category' ),
+				'update_item' => __( 'Update User Category' ),
+				'add_new_item' => __( 'Add New User Category' ),
+				'new_item_name' => __( 'New User Category Name' ),
+				'separate_items_with_commas' => __( 'Separate Categories with commas' ),
+				'add_or_remove_items' => __( 'Add or remove User Categories' ),
+				'choose_from_most_used' => __( 'Choose from the most popular User Categories' ),
+			),
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'rewrite' => array(
+//				'with_front' => true,
+//				'slug' => 'author/' . $this->user_taxonomy // Use 'author' (default WP user slug).
+			),
+			'capabilities' => array(
+				'manage_terms' => 'edit_users', // Using 'edit_users' cap to keep this simple.
+				'edit_terms'   => 'edit_users',
+				'delete_terms' => 'edit_users',
+				'assign_terms' => 'edit_users',
+			),
+		);
+
+		gv_register_user_taxonomy('user-groups', $args);
+	}
+	add_action('after_setup_theme', 'gvcommunity_register_user_groups_taxonomy', 11);
+	
+	
 /**
  * Register CSS variants specific to the this theme
  * 
