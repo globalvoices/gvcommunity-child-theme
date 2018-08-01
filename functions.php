@@ -179,9 +179,9 @@ if (is_object($gv)) :
 	 * segregation_conditions apply to primary content only. sidebar headlines etc assume segregation
 	 * segregate_headlines - use if headlines will be a waste for this , blocks them from showing as title only
 	 */
-	$gv->category_content_types = array(
-		'feature' => array('title' => 'feature'),
-	    );
+//	$gv->category_content_types = array(
+//		'feature' => array('title' => 'feature'),
+//	);
 	
 	/**
 	 * Set a custom site description using a lingua string. To be used in social media sharing etc.
