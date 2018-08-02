@@ -347,7 +347,103 @@ function gvcommunity_register_user_groups_taxonomy() {
 	}
 	add_action('after_setup_theme', 'gvcommunity_register_user_groups_taxonomy', 11);
 	
-	
+	/**
+	 * TEMP COMMUNITY COUNCIL: Button to show a template acceptance letter for the council
+	 * 
+	 * Adds a "Show/Hide Community Acceptance Letter" button in the user editor just below the
+	 * User Categories box that displays a textarea with sample acceptance text that can be
+	 * used for each person. 
+	 * 
+	 * Useful because it integrates various URLs auto-generated from the user account being edited
+	 * 
+	 * @param WP_User $user_object
+	 * @return type
+	 */
+	function gvcomunity_personal_options_council_acceptance_letter_template($user_object) {
+		// Only show to admins
+		if (!current_user_can('edit_users'))
+			return;
+
+		// Make sure we have a user to show
+		if (!is_object($user_object) OR !isset($user_object->ID))
+			return;
+
+		// Set up values to include
+		$user_email = $user_object->user_email;
+		$user_display_name = $user_object->display_name;
+		$user_profile_url = get_author_posts_url($user_object->ID);
+		$user_profile_edit_url = get_edit_user_link($user_object->ID);
+		
+		/**
+		 * Output
+		 */
+		$output = "<h3>TEMPORARY: Community Council Acceptance Template</h3>";
+		$output .= "<p class='description'>Use this as a template when notifying this user that they have been added to the community council (i.e. that they are in the 'Community Council 2018' User Category above)</p>";
+		$output .= "<p class='council-acceptance-letter-button button'>Show/Hide Community Acceptance Letter</p>";
+		$output .= "<div class='council-acceptance-letter hidden'>";
+		$output .= "
+		<textarea style='width:100%; height:15rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;'>
+
+$user_email
+
+Thank you $user_display_name for joining the Community Consultation on the Future of Global Voices!
+
+We've reviewed your application and, as expected, it all looks good. 
+
+We're overjoyed that you care so much about Global Voices, and that your voice will be included in this vital process. 
+
+## Google Group Subscription
+
+You should already have recieved an email informing you that you are subscribed to the new 'Global Voices Community Council' Google Group, which can also be found here:
+
+https://groups.google.com/forum/#!forum/gv-community-council
+
+This group will be used to send announcements, updates and other important information on the process as it goes on, as well a being an ongoing location for discussion between council members. 
+
+## Community Site Profile
+
+As part of the Council process, we've ensured that you have a profile on the GV Community Blog, where all council members will be listed. If you didn't already have this account, we've created it by importing your user profile from another site:
+
+$user_profile_url
+
+Please take a few minutes to review that profile and make sure all the user settings (email, social media profiles) are correct. If your bio or any other information isn't available in English on that profile, please consider translating the text (though feel free to keep both copies if you want!). 
+
+You can edit the account at this URL: $user_profile_edit_url
+(If you haven't used this account yet, then it won't have a password, just use the 'Lost your password?' tool on the login form to create a new password for this profile Note that it isn't the same as your other Global Voices WordPress accounts, even though it probably has the same email and username) 
+
+## D21 Polling Platform
+
+When the time comes, after discussing a major issue, you will be invited to answer a set of detailed questions using the 'D21' platform:
+
+https://www.d21.me/
+
+For now there's nothing you need to do in this regard. For each poll, you'll recieve an email at this address inviting you to click through and answer the questions. 
+
+## Thank you!
+
+We already appreciate the effort you've put into reading the Community Council documentation and filling out the application, and it's hard to express how much we look forward to your continued engagement and interaction with this process as it goes forward. 
+
+The willingness of GVers to do hard tasks, think clearly and collaborate actively is what has made our community and work so amazing, thank you for being a part of it!
+
+- Global Voices Core Team (Ivan, Georgia, Kat, Eddie, Ellery, Gohary and Jer)
+
+		</textarea>";			
+		$output .= "</div>";
+		$output .= "
+		<script type='text/javascript'>
+			jQuery(document).ready(function($) {
+				$('.council-acceptance-letter-button').click(function() {
+					$( '.council-acceptance-letter' ).toggleClass( 'hidden' );
+				});
+			});			
+		</script>
+		";
+		
+		echo $output;
+	}
+	add_action('show_user_profile', 'gvcomunity_personal_options_council_acceptance_letter_template', 10, 1 );
+	add_action('edit_user_profile', 'gvcomunity_personal_options_council_acceptance_letter_template', 10, 1 );
+		
 /**
  * Register CSS variants specific to the this theme
  * 
