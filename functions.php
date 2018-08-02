@@ -386,51 +386,40 @@ function gvcommunity_register_user_groups_taxonomy() {
 		<textarea style='width:100%; height:15rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;'>
 
 $user_email
+	
+$user_display_name, thank you for applying to join the Community Consultation on the future of Global Voices! We’re pleased to officially welcome you to the Council and that your voice will be included in this vital process. Here’s some initial information to get you started and ready for the first round of deliberation.
+ 
+## The Community Council Google Group 
+ 
+Soon you will receive an email informing you that you are subscribed to the new 'Global Voices Community Council' Google Group, which can also be found here:
 
-Thank you $user_display_name for joining the Community Consultation on the Future of Global Voices!
+https://groups.google.com/forum/#!forum/gv-community-council.
 
-We've reviewed your application and, as expected, it all looks good. 
-
-We're overjoyed that you care so much about Global Voices, and that your voice will be included in this vital process. 
-
-## Google Group Subscription
-
-You should already have recieved an email informing you that you are subscribed to the new 'Global Voices Community Council' Google Group, which can also be found here:
-
-https://groups.google.com/forum/#!forum/gv-community-council
-
-This group will be used to send announcements, updates and other important information on the process as it goes on, as well a being an ongoing location for discussion between council members. 
-
+We’ll use this group to send announcements, updates and other important information about the Council process, as well as for ongoing discussions among Council members about the ideas brought to the Council.  
+ 
 ## Community Site Profile
-
-As part of the Council process, we've ensured that you have a profile on the GV Community Blog, where all council members will be listed. If you didn't already have this account, we've created it by importing your user profile from another site:
-
+ 
+As part of the Council process, we've ensured that you have a user profile on the GV Community Blog. All council members will be listed on the Community Blog, unless they opted out for security reasons. If you didn't already have an account, we've created one for you by importing your user profile from another GV site:
+ 
 $user_profile_url
+ 
+Please take a few minutes to review that profile and make sure all the user settings (e.g. email, social media profiles) are correct. If your bio or other information isn't available in English on that profile, please consider translating the text (though feel free to keep both copies if you want!)
 
-Please take a few minutes to review that profile and make sure all the user settings (email, social media profiles) are correct. If your bio or any other information isn't available in English on that profile, please consider translating the text (though feel free to keep both copies if you want!). 
+You can edit the account at this URL: 
 
-You can edit the account at this URL: $user_profile_edit_url
+$user_profile_edit_url
 	
 Username: $user_login
 Email: $user_email
-Password: If you haven't used this account yet, then it won't have a password, so please use the 'Lost your password?' tool on the login form to create a new password for this profile
+ 
+Password: If this is the first time you’re using this account, it won't have a password, so please use the 'Lost your password?' tool on the login form to create a new password for this profile
 
-Note: This is a unique account, separate from the one(s) you have on the Global Voices/Lingua/Advox WordPress sites, though it probably has the same username and email.
-
-## D21 Polling Platform
-
-When the time comes, after discussing a major issue, you will be invited to answer a set of detailed questions using the 'D21' platform:
-
-https://www.d21.me/
-
-For now there's nothing you need to do in this regard. For each poll, you'll recieve an email at this address inviting you to click through and answer the questions. 
-
+Note: This is a unique account, separate from the one(s) you have on the Global Voices/Lingua/Advox/Rising Voices/NewsFrames WordPress sites, though it probably has the same username and email.
+ 
 ## Thank you!
-
-We already appreciate the effort you've put into reading the Community Council documentation and filling out the application, and it's hard to express how much we look forward to your continued engagement and interaction with this process as it goes forward. 
-
-The willingness of GVers to do hard tasks, think clearly and collaborate actively is what has made our community and work so amazing, thank you for being a part of it!
-
+ 
+We appreciate the effort you've put into reading the Community Council documentation and filling out the application, and we look forward to your continued engagement and interaction with this process as it goes forward. Thanks again for being part of the Community Council.
+ 
 - Global Voices Core Team (Ivan, Georgia, Kat, Eddie, Ellery, Gohary and Jer)
 
 		</textarea>";			
