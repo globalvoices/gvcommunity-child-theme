@@ -370,6 +370,7 @@ function gvcommunity_register_user_groups_taxonomy() {
 
 		// Set up values to include
 		$user_email = $user_object->user_email;
+		$user_login = $user_object->user_login;
 		$user_display_name = $user_object->display_name;
 		$user_profile_url = get_author_posts_url($user_object->ID);
 		$user_profile_edit_url = get_edit_user_link($user_object->ID);
@@ -409,7 +410,12 @@ $user_profile_url
 Please take a few minutes to review that profile and make sure all the user settings (email, social media profiles) are correct. If your bio or any other information isn't available in English on that profile, please consider translating the text (though feel free to keep both copies if you want!). 
 
 You can edit the account at this URL: $user_profile_edit_url
-(If you haven't used this account yet, then it won't have a password, just use the 'Lost your password?' tool on the login form to create a new password for this profile Note that it isn't the same as your other Global Voices WordPress accounts, even though it probably has the same email and username) 
+	
+Username: $user_login
+Email: $user_email
+Password: If you haven't used this account yet, then it won't have a password, so please use the 'Lost your password?' tool on the login form to create a new password for this profile
+
+Note: This is a unique account, separate from the one(s) you have on the Global Voices/Lingua/Advox WordPress sites, though it probably has the same username and email.
 
 ## D21 Polling Platform
 
