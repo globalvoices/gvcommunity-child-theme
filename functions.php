@@ -350,7 +350,7 @@ function gvcommunity_register_user_groups_taxonomy() {
 	/**
 	 * TEMP COMMUNITY COUNCIL: Button to show a template acceptance letter for the council
 	 * 
-	 * Adds a "Show/Hide Community Acceptance Letter" button in the user editor just below the
+	 * Adds a "Show/Hide Community Acceptance Letter" button in the user editor just above the
 	 * User Categories box that displays a textarea with sample acceptance text that can be
 	 * used for each person. 
 	 * 
@@ -378,7 +378,7 @@ function gvcommunity_register_user_groups_taxonomy() {
 		 * Output
 		 */
 		$output = "<h3>TEMPORARY: Community Council Acceptance Template</h3>";
-		$output .= "<p class='description'>Use this as a template when notifying this user that they have been added to the community council (i.e. that they are in the 'Community Council 2018' User Category above)</p>";
+		$output .= "<p class='description'>Use this as a template when notifying this user that they have been added to the community council (i.e. that they are in the 'Community Council 2018' User Category below)</p>";
 		$output .= "<p class='council-acceptance-letter-button button'>Show/Hide Community Acceptance Letter</p>";
 		$output .= "<div class='council-acceptance-letter hidden'>";
 		$output .= "
