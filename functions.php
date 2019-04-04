@@ -142,6 +142,23 @@ if (is_object($gv)) :
 	add_filter('gv_site_colors', 'gvcommunity_gv_site_colors');
 
 	/**
+	 * Filter Google Structured Data "logo" for AMP
+	 * 
+	 * @see SD reference https://developers.google.com/search/docs/data-types/article
+	 * @see gv_get_sd_logo() Which uses this
+	 * @param string $icon Default icon
+	 * @return string desired icon
+	 */
+	function gvcommunity_theme_gv_sd_logo($icon) {
+		return array(
+			'url' => 'http://s3.amazonaws.com/static.globalvoices/img/tmpl/community-structureddata-60x358.png',
+			'height' => 60,
+			'width' => 318,
+		);
+	}
+	add_filter('gv_sd_logo', 'gvcommunity_theme_gv_sd_logo');
+
+	/**
 	 * Filter the favicon directory used by gv_display_head_icons()
 	 * 
 	 * @param string $dir Default directory (no trailing /) to find favicons in
