@@ -329,17 +329,17 @@ if (is_object($gv)) :
 	
 
 
-/**
- * Register "User Categories" as a user taxonomy
- *
- * Simple, hand-created list of user-categories specifically so that we can have
- * a `council-2018` user category and display the list of users. 
- * 
- * English only for now. If we use something similar on Lingua it will need to be
- * re-evaluated. 
- *
- */
-function gvcommunity_register_user_groups_taxonomy() {
+	/**
+	 * Register "User Categories" as a user taxonomy
+	 *
+	 * Simple, hand-created list of user-categories specifically so that we can have
+	 * a `council-2018` user category and display the list of users. 
+	 * 
+	 * English only for now. If we use something similar on Lingua it will need to be
+	 * re-evaluated. 
+	 *
+	 */
+	function gvcommunity_register_user_groups_taxonomy() {
 		/**
 		 * Set up the register_taxonomy args 
 		 * (based on gv_achievements->register_taxonomy()
@@ -381,11 +381,11 @@ function gvcommunity_register_user_groups_taxonomy() {
 		gv_register_user_taxonomy('user-groups', $args);
 	}
 	add_action('after_setup_theme', 'gvcommunity_register_user_groups_taxonomy', 11);
-	
+
 	/**
-	 * TEMP COMMUNITY COUNCIL: Button to show a template acceptance letter for the council
+	 * COMMUNITY COUNCIL: Button to show a template acceptance letter for the council
 	 * 
-	 * Adds a "Show/Hide Community Acceptance Letter" button in the user editor just above the
+	 * Adds a "Show/Hide Community Acceptance Letter" button in the user editor just below the
 	 * User Categories box that displays a textarea with sample acceptance text that can be
 	 * used for each person. 
 	 * 
@@ -474,57 +474,57 @@ We appreciate the effort you've put into reading the Community Council documenta
 	add_action('show_user_profile', 'gvcomunity_personal_options_council_acceptance_letter_template', 10, 1 );
 	add_action('edit_user_profile', 'gvcomunity_personal_options_council_acceptance_letter_template', 10, 1 );
 		
-/**
- * Register CSS variants specific to the this theme
- * 
- * Attached to 'wp' action so as to come before wp_head where gv_output_css_variants acts
- * 
- * @see gv_add_css_variant() which is used to register variants
- * @see gv_output_css_variants() which echos out the CSS of variants activated by ?gv_css_variant=$variant_label
- */
-function risingvoices_css_variants() {
+	/**
+	 * Register CSS variants specific to the this theme
+	 * 
+	 * Attached to 'wp' action so as to come before wp_head where gv_output_css_variants acts
+	 * 
+	 * @see gv_add_css_variant() which is used to register variants
+	 * @see gv_output_css_variants() which echos out the CSS of variants activated by ?gv_css_variant=$variant_label
+	 */
+	function risingvoices_css_variants() {
 
-	gv_add_css_variant(array(
-		'label' => 'xxx',
-		'css' => "",
-	));
-}
-//add_action('wp', 'risingvoices_css_variants');
-	
-/**
- * Red Header variant: jQuery to replace default header image
- * 
- * Makes it so that if red_header CSS variant is active the header image is automatically
- * replced with an all-white version. 
- * 
- * DELETE when the variant is no longer needed.
- */
-function risingvoices_css_variant_js() {
+		gv_add_css_variant(array(
+			'label' => 'xxx',
+			'css' => "",
+		));
+	}
+	//add_action('wp', 'risingvoices_css_variants');
 	
 	/**
-	 * TEMPORARY: keep it emabled all the time, unless white_header is enabled
+	 * Red Header variant: jQuery to replace default header image
+	 * 
+	 * Makes it so that if red_header CSS variant is active the header image is automatically
+	 * replced with an all-white version. 
+	 * 
+	 * DELETE when the variant is no longer needed.
 	 */
-//	if (!gv_is_active_css_variant('white_header') AND !gv_is_active_css_variant('white_header_white_stripe'))
-//		gv_activate_css_variant('red_header');
-	
-	/**
-	 * If red header is active replace the logo with a white version
-	 */
-	if (gv_is_active_css_variant('logo_myriad_allbold')) :
+	function risingvoices_css_variant_js() {
 
-		$alt_header_url = get_stylesheet_directory_uri() . '/images/rv-header-myriad-allbold-600.png';
+		/**
+		 * TEMPORARY: keep it emabled all the time, unless white_header is enabled
+		 */
+	//	if (!gv_is_active_css_variant('white_header') AND !gv_is_active_css_variant('white_header_white_stripe'))
+	//		gv_activate_css_variant('red_header');
 
-		echo "
-<script type='text/javascript'>
-	jQuery(document).ready(function($) {
-		$('#logo').attr('src', '$alt_header_url');
-			console.log('test');
-	});
-</script>
-		";
-	endif;
-}
-//add_action('wp_head', 'risingvoices_css_variant_js');
+		/**
+		 * If red header is active replace the logo with a white version
+		 */
+		if (gv_is_active_css_variant('logo_myriad_allbold')) :
+
+			$alt_header_url = get_stylesheet_directory_uri() . '/images/rv-header-myriad-allbold-600.png';
+
+			echo "
+	<script type='text/javascript'>
+		jQuery(document).ready(function($) {
+			$('#logo').attr('src', '$alt_header_url');
+				console.log('test');
+		});
+	</script>
+			";
+		endif;
+	}
+	//add_action('wp_head', 'risingvoices_css_variant_js');
 	
 endif; // is_object($gv)
 ?>
