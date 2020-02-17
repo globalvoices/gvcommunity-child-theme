@@ -413,20 +413,20 @@ function gvcommunity_register_user_groups_taxonomy() {
 		/**
 		 * Output
 		 */
-		$output = "<h3>TEMPORARY: Community Council Acceptance Template</h3>";
-		$output .= "<p class='description'>Use this as a template when notifying this user that they have been added to the community council (i.e. that they are in the 'Community Council 2018' User Category below)</p>";
-		$output .= "<p class='council-acceptance-letter-button button'>Show/Hide Community Acceptance Letter</p>";
+		$output = "<h3>GV Community Council Acceptance Template</h3>";
+		$output .= "<p class='description'>Use this as a template when notifying this user that they have been added to the GV Community Council (i.e. that they are in the appropriate \"Community Council]\" User Category above)</p>";
+		$output .= "<p class='council-acceptance-letter-button button'>Show/Hide Council Acceptance Letter</p>";
 		$output .= "<div class='council-acceptance-letter hidden'>";
 		$output .= "
 		<textarea style='width:100%; height:15rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;'>
 
 $user_email
 	
-$user_display_name, thank you for applying to join the Community Consultation on the future of Global Voices! We’re pleased to officially welcome you to the Council and that your voice will be included in this vital process. Here’s some initial information to get you started and ready for the first round of deliberation.
+$user_display_name, thank you for applying to join the GV Community Council for this year! We’re pleased to officially welcome you to the Council and that your voice will be included in this vital process. Here’s some initial information to get you started and ready to particpate.
  
 ## The Community Council Google Group 
  
-Soon you will receive an email informing you that you are subscribed to the new 'Global Voices Community Council' Google Group, which can also be found here:
+Soon you will receive an email informing you that you are subscribed to the 'Global Voices Community Council' Google Group, which can also be found here:
 
 https://groups.google.com/forum/#!forum/gv-community-council.
 
@@ -455,7 +455,7 @@ Note: This is a unique account, separate from the one(s) you have on the Global 
  
 We appreciate the effort you've put into reading the Community Council documentation and filling out the application, and we look forward to your continued engagement and interaction with this process as it goes forward. Thanks again for being part of the Community Council.
  
-- Global Voices Core Team (Ivan, Georgia, Kat, Eddie, Ellery, Gohary and Jer)
+- Global Voices Core Team (Ivan, Georgia, Maryalice, Eddie, Gohary, and Jer)
 
 		</textarea>";			
 		$output .= "</div>";
