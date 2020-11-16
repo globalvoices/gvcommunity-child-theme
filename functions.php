@@ -75,7 +75,7 @@ function gv_filter_post_classes_rtl ($classes, $class, $post_id) {
 add_filter('post_class', 'gv_filter_post_classes_rtl', 10, 3);
 
 /**
- * Register custom postmeta fields with the Custom Medatata Manager plugin
+ * Register custom postmeta fields with the Custom Metadata Manager plugin
  *
  * Convert to some other format if this ever stops working
  */
@@ -93,7 +93,7 @@ function gv_community_custom_metadata_manager_admin_init() {
 		'priority' => 'high',
 	));
 	/**
-	 * Extra-wide switch, pages only
+	 * gv-rtl to indicate a right-to-left (e.g. Arabic) post
 	 */
 	x_add_metadata_field( 'gv-rtl', array('post', 'page'), array(
 		'group' => 'gv_custom_metadata_posts',
@@ -170,7 +170,7 @@ if (is_object($gv)) :
 //	add_filter('gv_favicon_dir', 'risingvoices_theme_gv_favicon_dir');
 	
 	/**
-	 * Filter the apple touch icon to be an RV logo
+	 * Filter the apple touch icon 
 	 * 
 	 * @param string $icon Default icon
 	 * @return string desired icon
@@ -181,7 +181,7 @@ if (is_object($gv)) :
 //	add_filter('gv_apple_touch_icon', 'rising_theme_gv_apple_touch_icon');
 		
 	/**
-	 * Filter the og:image (facebook/g+) default icon to be an RV logo
+	 * Filter the og:image (facebook/g+) default icon 
 	 * 
 	 * @param string $icon Default icon
 	 * @return string desired icon
@@ -298,36 +298,6 @@ if (is_object($gv)) :
 			"status" => 'sponsor',
 			),
 	);
-	
-	/**
-	 * Filter gv_post_archive_hide_dates to hide them on hoempage
-	 * @param type $limit
-	 * @param type $args
-	 * @return int
-	 */
-	function rv_gv_post_archive_hide_dates($hide_dates) {
-		if (is_home() AND !is_paged())
-			return true;
-		
-		return $hide_dates;
-	}
-//	add_filter('gv_post_archive_hide_dates', 'rv_gv_post_archive_hide_dates', 10);
-
-	/**
-	 * Define new categories to force addition of on all sites using this theme.
-	 *
-	 * Used to add categories to all lingua sites automatically. Array used to be defined in the function.
-	 */
-//	$gv->new_categories = array(
-//		// Nepali Lang dec31 09
-//		'Nepali' => array(
-//			'slug' => 'nepali',
-//			'description' => 'ne',
-//			'parent' => gv_slug2cat('languages')
-//		),
-//	);
-	
-
 
 	/**
 	 * Register "User Categories" as a user taxonomy
@@ -473,58 +443,5 @@ We appreciate the effort you've put into reading the Community Council documenta
 	}
 	add_action('show_user_profile', 'gvcomunity_personal_options_council_acceptance_letter_template', 10, 1 );
 	add_action('edit_user_profile', 'gvcomunity_personal_options_council_acceptance_letter_template', 10, 1 );
-		
-	/**
-	 * Register CSS variants specific to the this theme
-	 * 
-	 * Attached to 'wp' action so as to come before wp_head where gv_output_css_variants acts
-	 * 
-	 * @see gv_add_css_variant() which is used to register variants
-	 * @see gv_output_css_variants() which echos out the CSS of variants activated by ?gv_css_variant=$variant_label
-	 */
-	function risingvoices_css_variants() {
-
-		gv_add_css_variant(array(
-			'label' => 'xxx',
-			'css' => "",
-		));
-	}
-	//add_action('wp', 'risingvoices_css_variants');
-	
-	/**
-	 * Red Header variant: jQuery to replace default header image
-	 * 
-	 * Makes it so that if red_header CSS variant is active the header image is automatically
-	 * replced with an all-white version. 
-	 * 
-	 * DELETE when the variant is no longer needed.
-	 */
-	function risingvoices_css_variant_js() {
-
-		/**
-		 * TEMPORARY: keep it emabled all the time, unless white_header is enabled
-		 */
-	//	if (!gv_is_active_css_variant('white_header') AND !gv_is_active_css_variant('white_header_white_stripe'))
-	//		gv_activate_css_variant('red_header');
-
-		/**
-		 * If red header is active replace the logo with a white version
-		 */
-		if (gv_is_active_css_variant('logo_myriad_allbold')) :
-
-			$alt_header_url = get_stylesheet_directory_uri() . '/images/rv-header-myriad-allbold-600.png';
-
-			echo "
-	<script type='text/javascript'>
-		jQuery(document).ready(function($) {
-			$('#logo').attr('src', '$alt_header_url');
-				console.log('test');
-		});
-	</script>
-			";
-		endif;
-	}
-	//add_action('wp_head', 'risingvoices_css_variant_js');
-	
 endif; // is_object($gv)
 ?>
