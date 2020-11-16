@@ -1,10 +1,112 @@
 /*
 Theme Name: GV Community Child Theme
 Theme URI: http://community.globalvoicesonline.org/
-Description: Child theme for the generic gv-project-theme for GV Community Blog
-Version: 0.1
-Author: Jeremy Clarke
-Author URI: http://globalvoicesonline.org/
-Template: gv-project-theme
+Description: Child of gv-theme for GV Community Blog
+Version: 1.0
+Author: Jer Clarke
+Author URI: http://jerclarke.org/
+Template: gv-theme
 
 */
+
+
+#WHITE-TEXT,
+.header-container,
+.header-container a,
+.header-mission-statement,
+.header-tools .menu-toggle,
+.white-text {
+	color: #fff; 
+}
+#LIGHT-RED-TEXT,
+.error,
+.edit a:hover,
+#comments .edit a:hover,
+#cancel-comment-reply-link:hover,
+.warning a:hover {
+	color: #d90202;
+	}
+#GREEN-BACKGROUND,
+.header-container,
+.header-nav-bar-container,
+.green-background {
+	background-color: #45AF49;
+}
+#GREEN-HIGHLIGHT-BORDER,
+.header-menu li,
+.header-menu-container input,
+.header-tools .menu-toggle,
+.green-hightlight-border {
+	border-color: #319a35;
+}
+#MEDIUM-BLUE-TEXT,
+.header-container .toggle-menu-content a,
+.header-container .menu-opened .menu-toggle,
+.medium-rv-blue-text {
+	color: #2F93E8;
+}
+
+
+#LINK-BOLDNESS-MEDIUM-BLUE-BACKGROUND, 
+.header-mission-statement a,
+.link-boldness-medium-blue-background {
+	font-weight: bold;
+}
+.header-container .site-search input[type='submit'] {
+	background-color: #198C1E;
+}
+.header-container .site-search input {
+	outline: 1px solid #198C1E;
+}
+#header {
+	margin-top: 0;
+}
+
+.site-title {
+	width: 600px;
+	max-width: 600px;
+	padding: 0;
+	position: relative !important; /*for site-title-img abs pos*/
+	margin-bottom: 1px;
+
+	margin-top: 0;
+	margin-bottom: 0;
+	}
+
+.title-menu-container {
+margin-bottom: 0;
+}
+
+.header-content {
+margin-bottom: .375rem;
+}
+
+@media
+/*only screen BIGGER THAN 1008px {*/
+only screen and (min-width: 1008px) {
+
+
+}
+@media
+/*only screen and (max-width: 960px) {*/
+only screen and (max-width: 1008px) {
+	.site-title {
+		width: 400px;
+		max-width: 400px;
+	}	
+}
+/*Anything smaller than 720px*/
+@media
+only screen and (max-width: 720px) {	
+	.site-title {
+		width: 240px;
+		max-width: 240px;
+	}
+}
+@media
+only screen and (max-width: 600px) {
+	.site-title {
+		width: 160px;
+		max-width: 160px;
+	}
+}
