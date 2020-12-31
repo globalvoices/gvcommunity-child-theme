@@ -392,7 +392,7 @@ if (is_object($gv)) :
 
 $user_email
 	
-$user_display_name, thank you for applying to join the GV Community Council for this year! We’re pleased to officially welcome you to the Council and that your voice will be included in this vital process. Here’s some initial information to get you started and ready to particpate.
+$user_display_name, thank you for applying to join the GV Community Council for this year! We’re pleased to officially welcome you to the Council and that your voice will be included in this vital process. Here’s some initial information to get you started and ready to participate.
  
 ## The Community Council Google Group 
  
@@ -425,7 +425,7 @@ Note: This is a unique account, separate from the one(s) you have on the Global 
  
 We appreciate the effort you've put into reading the Community Council documentation and filling out the application, and we look forward to your continued engagement and interaction with this process as it goes forward. Thanks again for being part of the Community Council.
  
-- Global Voices Core Team (Ivan, Georgia, Maryalice, Eddie, Gohary, and Jer)
+- Global Voices Core Team (Ivan, Georgia, Filip, Maryalice, Eddie, Gohary, and Jer)
 
 		</textarea>";			
 		$output .= "</div>";
