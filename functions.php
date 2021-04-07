@@ -15,15 +15,13 @@
  */
 function gv_community_filter_pre_sidebar($output) {
 	
-	if (!is_page())
+	if (!is_page()) {
 		return $output;
+	}
 	
-	/**
-	 * Echo out guide_sidebar_top if it exists
-	 * NOTE: No echo=false in gv_display_sidebar because of dynamic_sidebar not supporting it
-	 * So effectively we're using gv_pre_sidebar as an action rather than filter. 
-	 */
-	gv_display_sidebar('guide_sidebar_top', array());
+	$output .= gv_display_sidebar('guide_sidebar_top', array(
+		'echo' => false,
+	));
 	
 	return $output;
 }
