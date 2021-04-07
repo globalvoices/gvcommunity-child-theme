@@ -151,7 +151,7 @@ if (is_object($gv)) :
 	 */
 	function gvcommunity_theme_gv_sd_logo($icon) {
 		return array(
-			'url' => 'http://s3.amazonaws.com/static.globalvoices/img/tmpl/community-structureddata-60x358.png',
+			'url' => 'https://globalvoices.org/wp-content/gv-static/img/tmpl/community-structureddata-60x358.png',
 			'height' => 60,
 			'width' => 318,
 		);
