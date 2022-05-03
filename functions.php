@@ -107,7 +107,7 @@ if (is_object($gv)) :
 	 * Define an image to show in the header.
 	 * Project theme generic has none, so it will use site title
 	 */
-	$gv->settings['header_img'] = 'https://community.globalvoicesonline.org/wp-content/uploads/2014/10/gv-community-header-900.png';
+	$gv->settings['header_img'] = 'https://community.globalvoices.org/wp-content/uploads/2022/05/gv-community-site-header-trans-900.png';
 
 	/**
 	 * Enable Featured posts - Tells GV Query Manipulation to prefetch featured posts before main loop and exclude their ids.
@@ -149,7 +149,7 @@ if (is_object($gv)) :
 	 */
 	function gvcommunity_theme_gv_sd_logo($icon) {
 		return array(
-			'url' => 'https://globalvoices.org/wp-content/gv-static/img/tmpl/community-structureddata-60x358.png',
+			'url' => 'https://community.globalvoices.org/wp-content/uploads/2022/05/gv-community-structureddata60x258.png',
 			'height' => 60,
 			'width' => 318,
 		);
