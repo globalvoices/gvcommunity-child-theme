@@ -1,22 +1,19 @@
 /*
 Theme Name: GV Community Child Theme
-Theme URI: http://community.globalvoicesonline.org/
+Theme URI: http://community.globalvoices.org/
 Description: Child of gv-theme for GV Community Blog
-Version: 1.0
+Version: 1.1
 Author: Jer Clarke
 Author URI: http://jerclarke.org/
 Template: gv-theme
-
 */
 
 
 #WHITE-TEXT,
-.header-container,
-.header-container a,
-.header-mission-statement,
-.header-tools .menu-toggle,
+.header-nav-bar-container .header-nav-bar a,
+.a11y-dialog-open,
 .white-text {
-	color: #fff; 
+	color: #fff;
 }
 #LIGHT-RED-TEXT,
 .error,
@@ -33,31 +30,11 @@ Template: gv-theme
 	background-color: #45AF49;
 }
 #GREEN-HIGHLIGHT-BORDER,
-.header-menu li,
-.header-menu-container input,
-.header-tools .menu-toggle,
+.header-nav-bar li,
 .green-hightlight-border {
 	border-color: #319a35;
 }
-#MEDIUM-BLUE-TEXT,
-.header-container .toggle-menu-content a,
-.header-container .menu-opened .menu-toggle,
-.medium-rv-blue-text {
-	color: #2F93E8;
-}
 
-
-#LINK-BOLDNESS-MEDIUM-BLUE-BACKGROUND, 
-.header-mission-statement a,
-.link-boldness-medium-blue-background {
-	font-weight: bold;
-}
-.header-container .site-search input[type='submit'] {
-	background-color: #198C1E;
-}
-.header-container .site-search input {
-	outline: 1px solid #198C1E;
-}
 #header {
 	margin-top: 0;
 }
@@ -72,10 +49,6 @@ Template: gv-theme
 	margin-top: 0;
 	margin-bottom: 0;
 	}
-
-.title-menu-container {
-margin-bottom: 0;
-}
 
 .header-content {
 margin-bottom: .375rem;
