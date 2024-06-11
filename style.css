@@ -10,10 +10,10 @@ Template: gv-theme
 
 
 #WHITE-TEXT,
+.header-container .a11y-dialog-open,
 .header-nav-bar-container .header-nav-bar a,
 .header-nav-bar-container .header-nav-bar a:active,
 .header-nav-bar-container .header-nav-bar a:hover,
-.a11y-dialog-open,
 .white-text {
 	color: #fff;
 }
