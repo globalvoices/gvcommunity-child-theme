@@ -201,10 +201,10 @@ if (is_object($gv)) :
 //	add_filter('gv_og_image', 'gvadvocacy_theme_gv_og_image');
 	
 	/**
-	 * Define Categories to be inserted into post data before returning content for translation during fetch
-	 * @see gv_lingua::reply_to_ping()
+	 * Define terms to be inserted into post data before returning content for translation during fetch
+	 * @see GV_REST_Posts->generate_response()
 	 */
-	$gv->lingua_site_categories[] = 'gvcommunity';
+	$gv->lingua_site_terms['category'] = 'gvcommunity';
 	
 	/**
 	 * Set a custom site description using a lingua string. To be used in social media sharing etc.
